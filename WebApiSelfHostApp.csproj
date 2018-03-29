@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{236ABF7F-98AB-419E-8408-CF0C8588A922}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApiSelfHostApp</RootNamespace>
+    <AssemblyName>WebApiSelfHostApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WebApiSelfHostApp.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.2\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.2\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.SelfHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.SelfHost.5.2.4\lib\net45\System.Web.Http.SelfHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppStartConfig\WebApiConfig.cs" />
+    <Compile Include="BusinessLayer\UserMasterHelper.cs" />
+    <Compile Include="Controllers\CivilServicePayscalesController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\EHEmployeeController.cs" />
+    <Compile Include="Controllers\EmployeeACATransactionsController.cs" />
+    <Compile Include="Controllers\EmployeeDetailsController.cs" />
+    <Compile Include="Controllers\EmployeeHealthDetailsController.cs" />
+    <Compile Include="Controllers\EmployeePaymentHistoryController.cs" />
+    <Compile Include="Controllers\EmployeePositionDetailsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportingController.cs" />
+    <Compile Include="Controllers\SearchClassificationsController.cs" />
+    <Compile Include="Controllers\SearchEmployeesController.cs" />
+    <Compile Include="Controllers\SearchTIMSController.cs" />
+    <Compile Include="Controllers\UserLoginController.cs" />
+    <Compile Include="Controllers\UserMasterController.cs" />
+    <Compile Include="DataAccessLayer\SqlDbConnectionBaseClass.cs" />
+    <Compile Include="DataAccessLayer\SqlDbHelper.cs" />
+    <Compile Include="Formatters\BrowserJsonFormatter.cs" />
+    <Compile Include="Formatters\DictionaryAsArrayResolver.cs" />
+    <Compile Include="Handlers\CorsHandler.cs" />
+    <Compile Include="Handlers\NullValueHandler.cs" />
+    <Compile Include="Handlers\ReferenceLoopResolver.cs" />
+    <Compile Include="Models\AuthenticateUserReturn.cs" />
+    <Compile Include="Models\ClassData.cs" />
+    <Compile Include="Models\ClassDataAudit.cs" />
+    <Compile Include="Models\ClassificationDataSearchResults.cs" />
+    <Compile Include="Models\ClassKey.cs" />
+    <Compile Include="Models\EHEmployeeDetails.cs" />
+    <Compile Include="Models\EmployeeACATransactions.cs" />
+    <Compile Include="Models\EmployeeDetails.cs" />
+    <Compile Include="Models\EmployeeHealthDetails.cs" />
+    <Compile Include="Models\EmployeePaymentHistory.cs" />
+    <Compile Include="Models\EmployeePositionDetails.cs" />
+    <Compile Include="Models\EmployeeSearchResults.cs" />
+    <Compile Include="Models\EmployeeTransactionsHistory.cs" />
+    <Compile Include="Models\getHealth.cs" />
+    <Compile Include="Models\SalaryRange.cs" />
+    <Compile Include="Models\SearchClassifications.cs" />
+    <Compile Include="Models\SearchEmployees.cs" />
+    <Compile Include="Models\TIMSTableDetails.cs" />
+    <Compile Include="Models\TIMSTableListing.cs" />
+    <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\UserMaster.cs" />
+    <Compile Include="Models\UserMenuMapping.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
