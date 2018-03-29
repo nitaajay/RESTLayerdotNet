@@ -55,7 +55,7 @@ namespace WebApiSelfHostApp.AppStartConfig
             Console.WriteLine("========================================================================");
             Console.WriteLine();
             Console.WriteLine("========================================================================");
-            Console.WriteLine(Environment.NewLine + "floKapture Agent Api Started successfully on port " +
+            Console.WriteLine(Environment.NewLine + "API Started successfully on port " +
                               httpSelfHostConfiguration.BaseAddress.Port);
             Console.WriteLine(Environment.NewLine +
                               "========================================================================");
